@@ -13,6 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.ServiceContainer.Winds
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8D2A51B0-F89C-4EC6-B4F0-2A793C5058A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.Web", "Presentation\Nova.Web\Nova.Web.csproj", "{8389D8AF-B236-41BF-8516-108479A7E116}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{744B99A0-8CFB-4FBB-AB97-86482D63B12D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +36,10 @@ Global
 		{A37CD185-29C9-4105-86CD-F14A95C094CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A37CD185-29C9-4105-86CD-F14A95C094CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A37CD185-29C9-4105-86CD-F14A95C094CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8389D8AF-B236-41BF-8516-108479A7E116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8389D8AF-B236-41BF-8516-108479A7E116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8389D8AF-B236-41BF-8516-108479A7E116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8389D8AF-B236-41BF-8516-108479A7E116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +49,6 @@ Global
 		{29D34691-8691-4FDC-B752-1B33799DDD42} = {8D577093-4B73-400B-AD7D-B07F2FD6285F}
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA} = {98F15474-3C8C-4291-A4AB-5BB584C92E3C}
 		{A37CD185-29C9-4105-86CD-F14A95C094CF} = {29D34691-8691-4FDC-B752-1B33799DDD42}
+		{8389D8AF-B236-41BF-8516-108479A7E116} = {8D2A51B0-F89C-4EC6-B4F0-2A793C5058A6}
 	EndGlobalSection
 EndGlobal
