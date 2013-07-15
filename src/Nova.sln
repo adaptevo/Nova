@@ -7,6 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nova.Core", "Nova.Core", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.Core", "Libraries\Nova.Core\Nova.Core.csproj", "{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nova.Services", "Nova.Services", "{29D34691-8691-4FDC-B752-1B33799DDD42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.ServiceContainer.Windsor", "Libraries\Nova.Services\Nova.ServiceContainer.Windsor\Nova.ServiceContainer.Windsor.csproj", "{A37CD185-29C9-4105-86CD-F14A95C094CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8D2A51B0-F89C-4EC6-B4F0-2A793C5058A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +23,18 @@ Global
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A37CD185-29C9-4105-86CD-F14A95C094CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37CD185-29C9-4105-86CD-F14A95C094CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37CD185-29C9-4105-86CD-F14A95C094CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37CD185-29C9-4105-86CD-F14A95C094CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{98F15474-3C8C-4291-A4AB-5BB584C92E3C} = {8D577093-4B73-400B-AD7D-B07F2FD6285F}
+		{29D34691-8691-4FDC-B752-1B33799DDD42} = {8D577093-4B73-400B-AD7D-B07F2FD6285F}
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA} = {98F15474-3C8C-4291-A4AB-5BB584C92E3C}
+		{A37CD185-29C9-4105-86CD-F14A95C094CF} = {29D34691-8691-4FDC-B752-1B33799DDD42}
 	EndGlobalSection
 EndGlobal
