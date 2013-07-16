@@ -16,5 +16,14 @@ namespace Nova.Web.Controllers
             return View();
         }
 
+        public ActionResult Create()
+        {
+            return View("CreateQuestionView");
+        }
+
+        public ActionResult SaveNew(string Question)
+        {
+            return View();
+        }
     }
 }
