@@ -13,7 +13,7 @@ namespace Nova.Web.Controllers
 
         public ActionResult Index(string QuestionId)
         {
-            return View();
+            return View("Index", _questionRepository);
         }
 
         public ActionResult Create()
@@ -26,6 +26,11 @@ namespace Nova.Web.Controllers
             string questionId = Guid.NewGuid().ToString();
             _questionRepository.Add(questionId, questionText);
             return Index(questionId);
+        }
+
+        public ActionResult Overview(string QuestionId)
+        {
+            return View("OverviewView");
         }
     }
 }

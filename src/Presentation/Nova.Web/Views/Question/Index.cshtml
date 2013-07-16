@@ -1,0 +1,30 @@
+﻿@model Dictionary<string,string>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var q in @Model.Keys)
+    {
+        <tr>
+            <td>
+                @Model[q]
+            </td>
+            <td>
+                <a href="/Question/Overview/@q">Overview</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@Html.ActionLink("Create Question", "Create")
