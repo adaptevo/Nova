@@ -1,0 +1,15 @@
+﻿@model Nova.Core.Model.Question
+@{
+    ViewBag.Title = "EditQuestionView";
+}
+
+<h2>EditQuestionView</h2>
+
+@using (Html.BeginForm("Update", "Question"))
+{
+    @Html.TextBoxFor(m => m.QuestionText)
+    @Html.HiddenFor(m => m.QuestionId)
+    <input type="submit" value="Update Question" />
+}
+
+

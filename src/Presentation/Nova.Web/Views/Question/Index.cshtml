@@ -1,4 +1,4 @@
-﻿@model Dictionary<string,string>
+﻿@model Nova.Web.Model.QuestionModel
 @{
     ViewBag.Title = "Index";
 }
@@ -10,17 +10,21 @@
         <tr>
             <th>Question</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-    @foreach(var q in Model.Keys)
+    @foreach(var q in Model.Questions.Keys)
     {
         <tr>
             <td>
-                @Model[q]
+                @Model.Questions[q].QuestionText
             </td>
             <td>
                 @Html.ActionLink("Overview", "Overview", new {QuestionID = q})
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {QuestionID = q})
             </td>
         </tr>
     }

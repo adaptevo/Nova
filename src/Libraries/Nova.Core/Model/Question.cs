@@ -9,7 +9,7 @@ namespace Nova.Core.Model
             QuestionText = CheckArgument.NotNull(questionText, "questionText");
         }
 
-        public string QuestionId { get; private set; }
+        public string QuestionId { get; set; }
         public string QuestionText { get; set; }
     }
 }
