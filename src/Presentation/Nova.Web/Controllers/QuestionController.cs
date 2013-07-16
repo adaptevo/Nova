@@ -30,7 +30,14 @@ namespace Nova.Web.Controllers
 
         public ActionResult Overview(string QuestionId)
         {
-            return View("OverviewView");
+            if(!string.IsNullOrEmpty(QuestionId) && _questionRepository.ContainsKey(QuestionId))
+            {
+                return View("OverviewView", _questionRepository[QuestionId]);
+            }
+            else
+            {
+                return View("OverviewView");
+            }
         }
     }
 }

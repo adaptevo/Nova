@@ -13,14 +13,14 @@
         </tr>
     </thead>
     <tbody>
-    @foreach(var q in @Model.Keys)
+    @foreach(var q in Model.Keys)
     {
         <tr>
             <td>
                 @Model[q]
             </td>
             <td>
-                <a href="/Question/Overview/@q">Overview</a>
+                @Html.ActionLink("Overview", "Overview", new {QuestionID = q})
             </td>
         </tr>
     }
