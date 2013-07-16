@@ -32,7 +32,7 @@ namespace Nova.Web.Controllers
         {
             if(!string.IsNullOrEmpty(QuestionId) && _questionRepository.ContainsKey(QuestionId))
             {
-                return View("OverviewView", _questionRepository[QuestionId]);
+                return View("OverviewView", (object)_questionRepository[QuestionId]);
             }
             else
             {
