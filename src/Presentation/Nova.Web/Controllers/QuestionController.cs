@@ -8,10 +8,12 @@ namespace Nova.Web.Controllers
 {
     public class QuestionController : Controller
     {
+        private static readonly Dictionary<string, string> _questionRepository = new Dictionary<string, string>();
+
         //
         // GET: /Question/
 
-        public ActionResult Index()
+        public ActionResult Index(string QuestionId)
         {
             return View();
         }
@@ -21,9 +23,11 @@ namespace Nova.Web.Controllers
             return View("CreateQuestionView");
         }
 
-        public ActionResult SaveNew(string Question)
+        public ActionResult SaveNew(string questionText)
         {
-            return View();
+            string questionId = Guid.NewGuid().ToString();
+            _questionRepository.Add(questionId, questionText);
+            return Index(questionId);
         }
     }
 }
