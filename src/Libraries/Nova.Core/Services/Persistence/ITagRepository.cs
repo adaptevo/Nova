@@ -1,6 +1,6 @@
 ﻿using Nova.Core.Domain;
 
-namespace Nova.Core.Services.Repository
+namespace Nova.Core.Services.Persistence
 {
     public interface ITagRepository
     {

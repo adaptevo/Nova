@@ -1,26 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Nova.Web.Model;
+using Nova.Core.Application;
 using Nova.Core.Domain;
+using Nova.Web.Model;
+using Nova.Core.Services.Persistence;
+using Nova.Core.Services.Context;
 
 namespace Nova.Web.Controllers
 {
     public class QuestionController : Controller
     {
-        private static readonly QuestionModel _questionModel = new QuestionModel();
+        private readonly IQuestionService _questionService;
+        private readonly IQuestionRepository _questionRepository;
+
+        public QuestionController()
+        {
+            _questionRepository = new InMemoryQuestionRepository();
+            _questionService = new QuestionService(_questionRepository, new InMemoryTagRepository(), new TagService(), new MockUserContext());
+        }
 
         //
         // GET: /Question/
 
-        public ActionResult Index(string QuestionId)
+        public ActionResult Index()
         {
-            if (_questionModel.Questions == null)
-            {
-                _questionModel.Questions = new Dictionary<string, Question>();
-            }
-
-            return View("Index", _questionModel);
+            return View("Index", _questionRepository.GetAll());
         }
 
         public ActionResult Create()
@@ -30,26 +35,21 @@ namespace Nova.Web.Controllers
 
         public ActionResult SaveNew(string questionText)
         {
-            string questionId = Guid.NewGuid().ToString();
-            _questionModel.Questions.Add(questionId, new Question(questionText, questionText, new Tag()));
-            return Index(questionId);
+            int questionId = _questionService.PostQuestion(questionText, questionText, null);
+            return Overview(questionId);
         }
 
-        public ActionResult Update(string questionId, string questionText)
+        public ActionResult Update(int questionId, string questionText)
         {
-            if (_questionModel.Questions.ContainsKey(questionId))
-            {
-                //_questionModel.Questions[questionId].Inquiry = questionText;
-            }
-
-            return View("Index", _questionModel);
+            return Index();
         }
 
-        public ActionResult Overview(string QuestionId)
+        public ActionResult Overview(int questionId)
         {
-            if (!string.IsNullOrEmpty(QuestionId) && _questionModel.Questions.ContainsKey(QuestionId))
+            Question question = _questionRepository.Get(questionId);
+            if (question != default(Question))
             {
-                return View("OverviewView", _questionModel.Questions[QuestionId]);
+                return View("OverviewView", question);
             }
             else
             {
@@ -57,11 +57,12 @@ namespace Nova.Web.Controllers
             }
         }
 
-        public ActionResult Edit(string QuestionId)
+        public ActionResult Edit(int questionId)
         {
-            if (!string.IsNullOrEmpty(QuestionId) && _questionModel.Questions.ContainsKey(QuestionId))
+            Question question = _questionRepository.Get(questionId);
+            if (question != default(Question))
             {
-                return View("EditQuestionView", _questionModel.Questions[QuestionId]);
+                return View("EditQuestionView", question);
             }
             else
             {

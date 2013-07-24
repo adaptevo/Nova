@@ -1,4 +1,4 @@
-﻿@model Nova.Web.Model.QuestionModel
+﻿@model IEnumerable<Nova.Core.Domain.Question>
 @{
     ViewBag.Title = "Index";
 }
@@ -15,17 +15,17 @@
     </thead>
     <tbody>
 
-    @foreach(var q in Model.Questions.Keys)
+    @foreach(var q in Model)
     {
         <tr>
             <td>
-                @Model.Questions[q].QuestionText
+                @q.QuestionText
             </td>
             <td>
-                @Html.ActionLink("Overview", "Overview", new {QuestionID = q})
+                @Html.ActionLink("Overview", "Overview", new {QuestionID = q.Id})
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {QuestionID = q})
+                @Html.ActionLink("Edit", "Edit", new {QuestionID = q.Id})
             </td>
         </tr>
     }

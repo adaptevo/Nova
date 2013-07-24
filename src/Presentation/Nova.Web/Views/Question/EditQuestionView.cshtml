@@ -1,4 +1,4 @@
-﻿@model Nova.Core.Model.Question
+﻿@model Nova.Core.Domain.Question
 @{
     ViewBag.Title = "EditQuestionView";
 }
@@ -7,8 +7,8 @@
 
 @using (Html.BeginForm("Update", "Question"))
 {
-    @Html.TextBoxFor(m => m.QuestionText)
-    @Html.HiddenFor(m => m.QuestionId)
+    @Html.TextBoxFor(q => q.QuestionText)
+    @Html.HiddenFor(q => q.Id)
     <input type="submit" value="Update Question" />
 }
 

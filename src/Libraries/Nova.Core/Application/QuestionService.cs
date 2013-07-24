@@ -5,7 +5,7 @@ using System.Text;
 using Nova.Core.Domain;
 using Nova.Core.Utilities;
 using Nova.Core.Services.Configuration;
-using Nova.Core.Services.Repository;
+using Nova.Core.Services.Persistence;
 using Nova.Core.Services.Context;
 
 namespace Nova.Core.Application
