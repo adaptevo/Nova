@@ -139,10 +139,6 @@
     <Content Include="Views\Question\CreateQuestionView.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Libraries\Nova.Core\Nova.Core.csproj">
-      <Project>{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}</Project>
-      <Name>Nova.Core %28Libraries\Nova.Core\Nova.Core%29</Name>
-    </ProjectReference>
     <Content Include="Views\Question\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Question\EditQuestionView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Nova.Core\Nova.Core.csproj">
+      <Project>{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}</Project>
+      <Name>Nova.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

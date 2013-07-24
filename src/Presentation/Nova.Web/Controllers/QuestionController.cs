@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Nova.Web.Model;
-using Nova.Core.Model;
+using Nova.Core.Domain;
 
 namespace Nova.Web.Controllers
 {
@@ -31,7 +31,7 @@ namespace Nova.Web.Controllers
         public ActionResult SaveNew(string questionText)
         {
             string questionId = Guid.NewGuid().ToString();
-            _questionModel.Questions.Add(questionId, new Question(questionText) { QuestionId = questionId});
+            _questionModel.Questions.Add(questionId, new Question(questionText, questionText, new Tag()));
             return Index(questionId);
         }
 
@@ -39,7 +39,7 @@ namespace Nova.Web.Controllers
         {
             if (_questionModel.Questions.ContainsKey(questionId))
             {
-                _questionModel.Questions[questionId].QuestionText = questionText;
+                //_questionModel.Questions[questionId].Inquiry = questionText;
             }
 
             return View("Index", _questionModel);

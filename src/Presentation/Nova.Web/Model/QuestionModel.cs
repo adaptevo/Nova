@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Nova.Core.Model;
+using Nova.Core.Domain;
 
 namespace Nova.Web.Model
 {
