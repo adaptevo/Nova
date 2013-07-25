@@ -7,7 +7,7 @@
 
 @using (Html.BeginForm("Update", "Question"))
 {
-    @Html.TextBoxFor(q => q.QuestionText)
+    @Html.TextBoxFor(q => q.Value)
     @Html.HiddenFor(q => q.Id)
     <input type="submit" value="Update Question" />
 }

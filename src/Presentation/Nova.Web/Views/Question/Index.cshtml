@@ -1,14 +1,16 @@
 ﻿@model IEnumerable<Nova.Core.Domain.Question>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Question Listing";
 }
 
-<h2>Index</h2>
+<h2>Question Listing</h2>
 
-<table>
+<table border="1">
     <thead>
         <tr>
             <th>Question</th>
+            <th>Keywords</th>
+            <th>Default Tag</th>
             <th></th>
             <th></th>
         </tr>
@@ -19,7 +21,13 @@
     {
         <tr>
             <td>
-                @q.QuestionText
+                @q.Value
+            </td>
+             <td>
+                @q.Keywords
+            </td>
+             <td>
+                @q.Tags.FirstOrDefault().Name
             </td>
             <td>
                 @Html.ActionLink("Overview", "Overview", new {QuestionID = q.Id})

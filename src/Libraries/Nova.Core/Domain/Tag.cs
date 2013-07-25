@@ -8,12 +8,30 @@ namespace Nova.Core.Domain
 {
     public class Tag
     {
-        public Tag(string name)
+        private int _id;
+        private readonly string _name;
+        private readonly User _user;
+        private Tag _parent;
+
+        public Tag(string name, User user)
         {
-            Name = CheckArgument.NotEmpty(name, "name");
+            _name = CheckArgument.NotEmpty(name, "name");
+            _user = CheckArgument.NotNull(user, "user");
         }
 
-        public int Id { get; private set; }
-        public string Name { get; private set; }
+        public int Id 
+        {
+            get { return _id; }
+            private set { _id = CheckArgument.NotDefault(value, "value (Id)"); }
+        }
+
+        public string Name { get { return _name; } }
+        public User User { get { return _user; } }
+
+        public Tag Parent 
+        {
+            get { return _parent; }
+            set { _parent = CheckArgument.NotNull(value, "value (Parent)"); }
+        }
     }
 }

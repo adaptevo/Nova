@@ -12,17 +12,29 @@ namespace Nova.Core.Services.Persistence
 
         static InMemoryQuestionRepository()
         {
-            var tag = new Tag("Science Fiction");
+            var tag = new Tag("Science Fiction", new User("joejose", "Joseph Jose"));
             SetId(tag, 1);
 
-            Question question = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", tag);
+            Question question = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", tag, new User("joejose", "Joseph Jose"));
+            SetId(question, 1);
 
-            var Answer1 = new Answer(question, "Data", new User("joejose", "Joseph Jose"));
-            Answer1.UserAnswers.Add(new UserAnswer(Answer1, new User("seancui", "Sean Cui")));
-            Answer1.UserAnswers.Add(new UserAnswer(Answer1, new User("ashudassan", "Ashu Dassan")));
-            var Answer2 = new Answer(question, "Jean Luc Picard", new User("timrettich", "Timothy Rettich"));
-            question.Answers.Add(Answer1);
-            question.Answers.Add(Answer2);
+            Answer answer;
+
+            answer = new Answer(question, "Data", new User("joejose", "Joseph Jose"));
+            SetId(answer, 1);
+            question.Answers.Add(answer);
+
+            answer = new Answer(question, "Data", new User("seancui", "Sean Cui"));
+            SetId(answer, 2);
+            question.Answers.Add(answer);
+
+            answer = new Answer(question, "Data", new User("ashudassan", "Ashu Dassan"));
+            SetId(answer, 3);
+            question.Answers.Add(answer);
+
+            answer = new Answer(question, "Jean Luc Picard", new User("timrettich", "Timothy Rettich"));
+            SetId(answer, 4);
+            question.Answers.Add(answer);
 
             Questions.Add(question);
         }

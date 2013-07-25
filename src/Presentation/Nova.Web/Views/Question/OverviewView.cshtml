@@ -1,8 +1,35 @@
 ﻿@model Nova.Core.Domain.Question
 @{
-    ViewBag.Title = "Overview";
+    ViewBag.Title = "Question Overview";
 }
 
-<h2>Overview</h2>
+<h2>Question Overview</h2>
 
-<textarea>@Model.QuestionText</textarea>
+<h3>@Model.Value</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Answer</th>
+            <th>User</th>
+            <th>User Id</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach(var answer in Model.Answers)
+    {
+        <tr>
+            <td>
+                @answer.Value
+            </td>
+            <td>
+                @answer.User.Name
+            </td>
+            <td>
+                @answer.User.UserId
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

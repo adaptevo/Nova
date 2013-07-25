@@ -25,14 +25,14 @@ namespace Nova.Core.Application
             _userContext = CheckArgument.NotNull(userContext, "userContext");
         }
 
-        public int PostQuestion(string inquiry, string keywords, int? tagId)
+        public int PostQuestion(string value, string keywords, string tagName)
         {
-            CheckArgument.NotEmpty(inquiry, "inquiry");
+            CheckArgument.NotEmpty(value, "value");
             CheckArgument.NotEmpty(keywords, "keywords");
 
-            Tag tag = (tagId.HasValue) ? _tagRepository.Get(tagId.Value) : _tagService.GetDefaultTag();
+            Tag tag = (string.IsNullOrWhiteSpace(tagName)) ? _tagService.GetDefaultTag() : new Tag(tagName, _userContext.CurrentUser);
 
-            var question = new Question(inquiry, keywords, tag);
+            var question = new Question(value, keywords, tag, _userContext.CurrentUser);
             _questionRepository.Add(question);
             _questionRepository.PersistChanges();
             return question.Id;
@@ -41,17 +41,8 @@ namespace Nova.Core.Application
         public int AnswerQuestion(int questionId, string reply)
         {
             Question question = _questionRepository.Get(CheckArgument.NotDefault(questionId, "questionId"));
-            Answer answer = question.Answers.SingleOrDefault(a => a.AnswerText == reply);
-
-            if (answer == default(Answer))
-            {
-                answer = new Answer(question, reply, _userContext.CurrentUser);
-            }
-            else
-            {
-                answer.UserAnswers.Add(new UserAnswer(answer, _userContext.CurrentUser));
-            }
-
+            Answer answer = new Answer(question, reply, _userContext.CurrentUser);
+            question.Answers.Add(answer);
             _questionRepository.PersistChanges();
             return answer.Id;
         }

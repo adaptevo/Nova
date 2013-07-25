@@ -17,7 +17,7 @@ namespace Nova.Web.Controllers
         public QuestionController()
         {
             _questionRepository = new InMemoryQuestionRepository();
-            _questionService = new QuestionService(_questionRepository, new InMemoryTagRepository(), new TagService(), new MockUserContext());
+            _questionService = new QuestionService(_questionRepository, new InMemoryTagRepository(), new TagService(new MockUserContext()), new MockUserContext());
         }
 
         //
