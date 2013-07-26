@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{8D577093-4B73-400B-AD7D-B07F2FD6285F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nova.Services", "Nova.Services", "{29D34691-8691-4FDC-B752-1B33799DDD42}"
@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.Core", "Libraries\Nova.Core\Nova.Core.csproj", "{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ioc", "Libraries\Nova.Ioc\Ioc.csproj", "{8D28E7FB-E0F5-47E0-9814-2D1CE5454828}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D28E7FB-E0F5-47E0-9814-2D1CE5454828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D28E7FB-E0F5-47E0-9814-2D1CE5454828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D28E7FB-E0F5-47E0-9814-2D1CE5454828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D28E7FB-E0F5-47E0-9814-2D1CE5454828}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{29D34691-8691-4FDC-B752-1B33799DDD42} = {8D577093-4B73-400B-AD7D-B07F2FD6285F}
 		{D3960DEC-B8FD-41ED-9FC2-17F045C799EA} = {8D577093-4B73-400B-AD7D-B07F2FD6285F}
+		{8D28E7FB-E0F5-47E0-9814-2D1CE5454828} = {8D577093-4B73-400B-AD7D-B07F2FD6285F}
 		{A37CD185-29C9-4105-86CD-F14A95C094CF} = {29D34691-8691-4FDC-B752-1B33799DDD42}
 		{8389D8AF-B236-41BF-8516-108479A7E116} = {8D2A51B0-F89C-4EC6-B4F0-2A793C5058A6}
 		{F422C8FC-CDA0-4A13-8931-D5DC85A7DA43} = {3091DCEC-F731-44A4-86E4-02F482E83F0D}
