@@ -13,14 +13,12 @@ namespace Nova.Core.Application
     public class QuestionService : IQuestionService
     {
         private readonly IQuestionRepository _questionRepository;
-        private readonly ITagRepository _tagRepository;
         private readonly ITagService _tagService;
         private readonly IUserContext _userContext;
 
-        public QuestionService(IQuestionRepository questionRepository, ITagRepository tagRepository, ITagService tagService, IUserContext userContext)
+        public QuestionService(IQuestionRepository questionRepository, ITagService tagService, IUserContext userContext)
         {
             _questionRepository = CheckArgument.NotNull(questionRepository, "questionRepository");
-            _tagRepository = CheckArgument.NotNull(tagRepository, "tagRepository");
             _tagService = CheckArgument.NotNull(tagService, "tagService");
             _userContext = CheckArgument.NotNull(userContext, "userContext");
         }

@@ -6,6 +6,7 @@ using Nova.Core.Domain;
 using Nova.Applications.Web.Mvc.Model;
 using Nova.Core.Services.Persistence;
 using Nova.Core.Services.Context;
+using Nova.Core;
 
 namespace Nova.Applications.Web.Mvc.Controllers
 {
@@ -13,11 +14,13 @@ namespace Nova.Applications.Web.Mvc.Controllers
     {
         private readonly IQuestionService _questionService;
         private readonly IQuestionRepository _questionRepository;
+        private readonly ICommandHandler<PostQuestionCommand> _postQuestion;
 
         public QuestionController()
         {
             _questionRepository = new InMemoryQuestionRepository();
-            _questionService = new QuestionService(_questionRepository, new InMemoryTagRepository(), new TagService(new MockUserContext()), new MockUserContext());
+            _questionService = new QuestionService(_questionRepository, new TagService(new MockUserContext()), new MockUserContext());
+            _postQuestion = new PostQuestionCommandHandler(_questionRepository, new TagService(new MockUserContext()), new MockUserContext());
         }
 
         //
@@ -35,8 +38,14 @@ namespace Nova.Applications.Web.Mvc.Controllers
 
         public ActionResult SaveNew(string questionText)
         {
-            int questionId = _questionService.PostQuestion(questionText, questionText, null);
-            return Overview(questionId);
+            var command = new PostQuestionCommand()
+            {
+                Question = questionText,
+                Keywords = questionText
+            };
+
+            _postQuestion.Handle(command);
+            return Overview(command.QuestionId);
         }
 
         public ActionResult Update(int questionId, string questionText)
