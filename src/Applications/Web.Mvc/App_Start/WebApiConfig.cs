@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Nova.Web
+namespace Nova.Applications.Web.Mvc
 {
     public static class WebApiConfig
     {

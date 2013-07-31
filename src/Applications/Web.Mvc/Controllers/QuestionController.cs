@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Nova.Core.Application;
 using Nova.Core.Domain;
-using Nova.Web.Model;
+using Nova.Applications.Web.Mvc.Model;
 using Nova.Core.Services.Persistence;
 using Nova.Core.Services.Context;
 
-namespace Nova.Web.Controllers
+namespace Nova.Applications.Web.Mvc.Controllers
 {
     public class QuestionController : Controller
     {

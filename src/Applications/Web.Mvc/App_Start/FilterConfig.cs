@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Nova.Web
+namespace Nova.Applications.Web.Mvc
 {
     public class FilterConfig
     {

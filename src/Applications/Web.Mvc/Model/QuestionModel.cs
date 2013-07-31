@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Nova.Core.Domain;
 
-namespace Nova.Web.Model
+namespace Nova.Applications.Web.Mvc.Model
 {
     public class QuestionModel
     {
