@@ -12,23 +12,21 @@ namespace Nova.Applications.Web.Mvc.Controllers
 {
     public class QuestionController : Controller
     {
-        private readonly IQuestionService _questionService;
-        private readonly IQuestionRepository _questionRepository;
         private readonly ICommandHandler<PostQuestionCommand> _postQuestion;
+        private readonly IQueryHandler<GetQuestionByIdQuery, Question> _getQuestionById;
+        private readonly IQueryHandler<GetAllQuestionsQuery, IEnumerable<Question>> _getAllQuestions;
 
         public QuestionController()
         {
-            _questionRepository = new InMemoryQuestionRepository();
-            _questionService = new QuestionService(_questionRepository, new TagService(new MockUserContext()), new MockUserContext());
-            _postQuestion = new PostQuestionCommandHandler(_questionRepository, new TagService(new MockUserContext()), new MockUserContext());
+            var questionRepository = new InMemoryQuestionRepository();
+            _postQuestion = new PostQuestionCommandHandler(questionRepository, new TagService(new MockUserContext()), new MockUserContext());
+            _getQuestionById = new GetQuestionByIdQueryHandler(questionRepository);
+            _getAllQuestions = new GetAllQuestionsQueryHandler(questionRepository);
         }
-
-        //
-        // GET: /Question/
 
         public ActionResult Index()
         {
-            return View("Index", _questionRepository.GetAll());
+            return View("Index", _getAllQuestions.Handle(new GetAllQuestionsQuery()));
         }
 
         public ActionResult Create()
@@ -55,7 +53,8 @@ namespace Nova.Applications.Web.Mvc.Controllers
 
         public ActionResult Overview(int questionId)
         {
-            Question question = _questionRepository.Get(questionId);
+            Question question = _getQuestionById.Handle(new GetQuestionByIdQuery() { QuestionId = questionId });
+
             if (question != default(Question))
             {
                 return View("OverviewView", question);
@@ -68,7 +67,8 @@ namespace Nova.Applications.Web.Mvc.Controllers
 
         public ActionResult Edit(int questionId)
         {
-            Question question = _questionRepository.Get(questionId);
+            Question question = _getQuestionById.Handle(new GetQuestionByIdQuery() { QuestionId = questionId });
+
             if (question != default(Question))
             {
                 return View("EditQuestionView", question);

@@ -49,6 +49,8 @@
     <Compile Include="Domain\Question.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Domain\Answer.cs" />
+    <Compile Include="GetAllQuestionsQuery.cs" />
+    <Compile Include="GetAllQuestionsQueryHandler.cs" />
     <Compile Include="GetQuestionByIdQuery.cs" />
     <Compile Include="GetQuestionByIdQueryHandler.cs" />
     <Compile Include="ICommandHandler.cs" />
