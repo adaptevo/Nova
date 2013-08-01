@@ -10,13 +10,11 @@ namespace Nova.Core.Domain
     {
         private int _id;
         private readonly string _name;
-        private readonly User _user;
         private Tag _parent;
 
-        public Tag(string name, User user)
+        public Tag(string name)
         {
             _name = CheckArgument.NotEmpty(name, "name");
-            _user = CheckArgument.NotNull(user, "user");
         }
 
         public int Id 
@@ -26,7 +24,6 @@ namespace Nova.Core.Domain
         }
 
         public string Name { get { return _name; } }
-        public User User { get { return _user; } }
 
         public Tag Parent 
         {

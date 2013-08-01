@@ -12,14 +12,12 @@ namespace Nova.Core.Domain
         private readonly Question _question;
         private readonly string _value;
         private readonly string _keyword;
-        private readonly User _user;
 
-        public QuestionText(Question question, string value, string keywords, User user)
+        public QuestionText(Question question, string value, string keywords)
         {
             _question = CheckArgument.NotNull(question, "question");
             _value = CheckArgument.NotEmpty(value, "value");
             _keyword = CheckArgument.NotEmpty(keywords, "keywords");
-            _user = CheckArgument.NotNull(user, "user");
         }
 
         public int Id
@@ -31,6 +29,5 @@ namespace Nova.Core.Domain
         public Question Question { get { return _question; } }
         public string Value { get { return _value; } }
         public string Keyword { get { return _keyword; } }
-        public User User { get { return _user; } }
     }
 }

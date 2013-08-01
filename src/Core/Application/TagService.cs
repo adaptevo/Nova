@@ -8,16 +8,9 @@ namespace Nova.Core.Application
 {
     public class TagService : ITagService
     {
-        private readonly IUserContext _userContext;
-
-        public TagService(IUserContext userContext)
-        {
-            _userContext = CheckArgument.NotNull(userContext, "userContext");
-        }
-
         public Tag GetDefaultTag()
         {
-            return new Tag("General", _userContext.CurrentUser);
+            return new Tag("General");
         }
 
         public IEnumerable<Tag> GetSuggestedTags(string phrase)

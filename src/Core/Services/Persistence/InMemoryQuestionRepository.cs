@@ -12,27 +12,27 @@ namespace Nova.Core.Services.Persistence
 
         static InMemoryQuestionRepository()
         {
-            var tag = new Tag("Science Fiction", new User("joejose", "Joseph Jose"));
+            var tag = new Tag("Science Fiction");
             SetId(tag, 1);
 
-            Question question = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", tag, new User("joejose", "Joseph Jose"));
+            Question question = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", tag);
             SetId(question, 1);
 
             Answer answer;
 
-            answer = new Answer(question, "Data", new User("joejose", "Joseph Jose"));
+            answer = new Answer(question, "Data");
             SetId(answer, 1);
             question.Answers.Add(answer);
 
-            answer = new Answer(question, "Data", new User("seancui", "Sean Cui"));
+            answer = new Answer(question, "Data");
             SetId(answer, 2);
             question.Answers.Add(answer);
 
-            answer = new Answer(question, "Data", new User("ashudassan", "Ashu Dassan"));
+            answer = new Answer(question, "Data");
             SetId(answer, 3);
             question.Answers.Add(answer);
 
-            answer = new Answer(question, "Jean Luc Picard", new User("timrettich", "Timothy Rettich"));
+            answer = new Answer(question, "Jean Luc Picard");
             SetId(answer, 4);
             question.Answers.Add(answer);
 

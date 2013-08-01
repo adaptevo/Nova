@@ -19,7 +19,7 @@ namespace Nova.Applications.Web.Mvc.Controllers
         public QuestionController()
         {
             var questionRepository = new InMemoryQuestionRepository();
-            _postQuestion = new PostQuestionCommandHandler(questionRepository, new TagService(new MockUserContext()), new MockUserContext());
+            _postQuestion = new PostQuestionCommandHandler(questionRepository, new TagService());
             _getQuestionById = new GetQuestionByIdQueryHandler(questionRepository);
             _getAllQuestions = new GetAllQuestionsQueryHandler(questionRepository);
         }

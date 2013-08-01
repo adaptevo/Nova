@@ -12,9 +12,9 @@ namespace Nova.Core.Domain
         private readonly List<Tag> _tags;
         private readonly List<Answer> _answers;
 
-        public Question(string value, string keywords, Tag tag, User user)
+        public Question(string value, string keywords, Tag tag)
         {
-            var questionText = new QuestionText(this, value, keywords, user);
+            var questionText = new QuestionText(this, value, keywords);
             _value = questionText.Value;
             _keyword = questionText.Keyword;
             _suggestedQuestionText = new List<QuestionText>() { questionText };

@@ -28,9 +28,9 @@ namespace Nova.Core.Application
             CheckArgument.NotEmpty(value, "value");
             CheckArgument.NotEmpty(keywords, "keywords");
 
-            Tag tag = (string.IsNullOrWhiteSpace(tagName)) ? _tagService.GetDefaultTag() : new Tag(tagName, _userContext.CurrentUser);
+            Tag tag = (string.IsNullOrWhiteSpace(tagName)) ? _tagService.GetDefaultTag() : new Tag(tagName);
 
-            var question = new Question(value, keywords, tag, _userContext.CurrentUser);
+            var question = new Question(value, keywords, tag);
             _questionRepository.Add(question);
             _questionRepository.PersistChanges();
             return question.Id;
@@ -39,7 +39,7 @@ namespace Nova.Core.Application
         public int AnswerQuestion(int questionId, string reply)
         {
             Question question = _questionRepository.Get(CheckArgument.NotDefault(questionId, "questionId"));
-            Answer answer = new Answer(question, reply, _userContext.CurrentUser);
+            Answer answer = new Answer(question, reply);
             question.Answers.Add(answer);
             _questionRepository.PersistChanges();
             return answer.Id;
