@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswerQuestionCommand.cs" />
+    <Compile Include="AnswerQuestionCommandHandler.cs" />
     <Compile Include="Application\IQuestionService.cs" />
     <Compile Include="Application\ITagService.cs" />
     <Compile Include="Application\QuestionService.cs" />
     <Compile Include="Application\TagService.cs" />
+    <Compile Include="Domain\IntIdentifier.cs" />
     <Compile Include="Domain\QuestionText.cs" />
     <Compile Include="Domain\Tag.cs" />
     <Compile Include="Domain\Question.cs" />

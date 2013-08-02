@@ -1,4 +1,5 @@
-﻿
+﻿using Nova.Core.Domain;
+
 namespace Nova.Core
 {
     public class PostQuestionCommand
@@ -7,6 +8,6 @@ namespace Nova.Core
         public string Keywords { get; set; }
         public string TagName { get; set; }
 
-        public int QuestionId { get; internal set; }
+        public IntIdentifier QuestionId { get; internal set; }
     }
 }

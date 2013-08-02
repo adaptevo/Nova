@@ -5,7 +5,7 @@ namespace Nova.Core.Domain
 {
     public class Question
     {
-        private int _id;
+        private IntIdentifier _id;
         private readonly string _value;
         private readonly string _keyword;
         private readonly List<QuestionText> _suggestedQuestionText;
@@ -14,18 +14,21 @@ namespace Nova.Core.Domain
 
         public Question(string value, string keywords, Tag tag)
         {
+            _id = IntIdentifier.Transient;
+
             var questionText = new QuestionText(this, value, keywords);
             _value = questionText.Value;
             _keyword = questionText.Keyword;
             _suggestedQuestionText = new List<QuestionText>() { questionText };
+
             _tags = new List<Tag>() { CheckArgument.NotNull(tag, "tag") };
             _answers = new List<Answer>();
         }
 
-        public int Id
+        public IntIdentifier Id
         {
             get { return _id; }
-            private set { _id = CheckArgument.NotDefault(value, "value (Id)"); }
+            private set { _id = CheckArgument.NotNull(value, "value (Id)"); }
         }
 
         public string Value { get { return _value; } }

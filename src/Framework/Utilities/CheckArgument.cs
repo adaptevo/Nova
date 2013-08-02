@@ -35,5 +35,35 @@ namespace Nova.Framework.Utilities
 
             return value;
         }
+
+        public static int GreaterThan<T>(int value, int boundary, string argument) where T : IComparable<T>
+        {
+            if (value.CompareTo(boundary) <= 0)
+            {
+                throw new ArgumentOutOfRangeException(string.Format("Argument {0} must be greater than {1}", argument, boundary));
+            }
+
+            return value;
+        }
+
+        public static int GreaterThanOrEqualTo<T>(int value, int boundary, string argument) where T : IComparable<T>
+        {
+            if (value.CompareTo(boundary) < 0)
+            {
+                throw new ArgumentOutOfRangeException(string.Format("Argument {0} must be greater than or equal to {1}", argument, boundary));
+            }
+
+            return value;
+        }
+
+        public static bool IsValid(bool condition, string value, string argument)
+        {
+            if (!condition)
+            {
+                throw new ArgumentException(string.Format("Argument {0} is not valid: {1}", argument, value));
+            }
+
+            return condition;
+        }
     }
 }

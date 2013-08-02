@@ -16,7 +16,7 @@ namespace Nova.Core.Services.Persistence
             SetId(tag, 1);
 
             Question question = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", tag);
-            SetId(question, 1);
+            SetId(question, (IntIdentifier)1);
 
             Answer answer;
 
@@ -61,7 +61,7 @@ namespace Nova.Core.Services.Persistence
 
             foreach (Question question in TransientQuestions)
             {
-                SetId(question, ++currentMaxQuestionId);
+                SetId(question, (IntIdentifier)(++currentMaxQuestionId));
 
                 foreach (Answer answer in question.Answers)
                 {
@@ -74,9 +74,14 @@ namespace Nova.Core.Services.Persistence
             TransientQuestions.Clear();
         }
 
-        private static void SetId<T>(T entity, int id)
+        private static void SetId<T>(T entity, IntIdentifier id)
         {
             typeof(T).GetProperty("Id").SetValue(entity, id, null); 
+        }
+
+        private static void SetId<T>(T entity, int id)
+        {
+            typeof(T).GetProperty("Id").SetValue(entity, id, null);
         }
     }
 }

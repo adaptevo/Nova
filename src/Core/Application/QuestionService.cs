@@ -33,7 +33,7 @@ namespace Nova.Core.Application
             var question = new Question(value, keywords, tag);
             _questionRepository.Add(question);
             _questionRepository.PersistChanges();
-            return question.Id;
+            return question.Id.Value;
         }
 
         public int AnswerQuestion(int questionId, string reply)
