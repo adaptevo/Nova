@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Nova.Core.Domain;
-using Nova.Core.Utilities;
+using Nova.Framework.Utilities;
 using Nova.Core.Services.Configuration;
 using Nova.Core.Services.Persistence;
 using Nova.Core.Services.Context;

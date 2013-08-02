@@ -2,7 +2,7 @@
 using Nova.Core.Domain;
 using Nova.Core.Services.Context;
 using Nova.Core.Services.Persistence;
-using Nova.Core.Utilities;
+using Nova.Framework.Utilities;
 
 namespace Nova.Core
 {

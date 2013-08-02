@@ -66,10 +66,15 @@
     <Compile Include="Services\Persistence\InMemoryTagRepository.cs" />
     <Compile Include="Services\Persistence\IQuestionRepository.cs" />
     <Compile Include="Services\Persistence\ITagRepository.cs" />
-    <Compile Include="Utilities\CheckArgument.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\Authentication\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\Framework.csproj">
+      <Project>{2602BF0E-4709-401C-A640-413207189086}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

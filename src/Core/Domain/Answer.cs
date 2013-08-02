@@ -1,4 +1,4 @@
-﻿using Nova.Core.Utilities;
+﻿using Nova.Framework.Utilities;
 using System;
 
 namespace Nova.Core.Domain

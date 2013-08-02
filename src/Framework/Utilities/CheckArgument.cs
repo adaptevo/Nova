@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nova.Core.Utilities
+namespace Nova.Framework.Utilities
 {
     public static class CheckArgument
     {

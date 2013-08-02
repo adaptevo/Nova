@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Nova.Core.Domain;
 using Nova.Core.Services.Context;
-using Nova.Core.Utilities;
+using Nova.Framework.Utilities;
 
 namespace Nova.Core.Application
 {
