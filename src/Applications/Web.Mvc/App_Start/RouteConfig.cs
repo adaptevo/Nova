@@ -16,7 +16,8 @@ namespace Nova.Applications.Web.Mvc
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Question", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Question", action = "Index", id = UrlParameter.Optional },
+                constraints: new { controller = @"[^\.]*" }
             );
         }
     }

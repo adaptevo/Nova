@@ -16,7 +16,9 @@ namespace Nova.Applications.Web.Mvc.Controllers
         private readonly IQueryHandler<GetQuestionByIdQuery, Question> _getQuestionById;
         private readonly IQueryHandler<GetAllQuestionsQuery, IEnumerable<Question>> _getAllQuestions;
 
-        public QuestionController()
+        public QuestionController(ICommandHandler<PostQuestionCommand> postQuestion, 
+            IQueryHandler<GetQuestionByIdQuery, Question> getQuestionById,
+            IQueryHandler<GetAllQuestionsQuery, IEnumerable<Question>> getAllQuestions)
         {
             var questionRepository = new InMemoryQuestionRepository();
             _postQuestion = new PostQuestionCommandHandler(questionRepository, new TagService());

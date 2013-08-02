@@ -19,6 +19,8 @@ namespace Nova.Applications.Web.Mvc
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(null)); // TODO: Pass in a valid container when created
         }
     }
 }
