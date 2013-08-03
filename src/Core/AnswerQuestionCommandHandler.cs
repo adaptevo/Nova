@@ -17,12 +17,8 @@ namespace Nova.Core
 
         public void Handle(AnswerQuestionCommand command)
         {
-            CheckArgument.IsValid(command.QuestionId.IsTransient, command.QuestionId.Value.ToString(), "AnswerQuestionCommand.QuestionId");
-            CheckArgument.NotEmpty(command.Answer, "AnswerQuestionCommand.Answer");
-
-            Question question = _questionRepository.Get(command.QuestionId.Value);
-            Answer answer = new Answer(question, command.Answer);
-            question.Answers.Add(answer);
+            Question question = _questionRepository.Get(command.QuestionId);
+            question.Answer(command.Answer);
             _questionRepository.PersistChanges();
         }
     }

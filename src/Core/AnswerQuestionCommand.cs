@@ -4,7 +4,7 @@ namespace Nova.Core
 {
     public class AnswerQuestionCommand
     {
-        public IntIdentifier QuestionId { get; set; }
+        public int QuestionId { get; set; }
         public string Answer { get; set; }
     }
 }

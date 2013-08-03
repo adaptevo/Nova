@@ -19,9 +19,6 @@ namespace Nova.Core
 
         public void Handle(PostQuestionCommand command)
         {
-            CheckArgument.NotEmpty(command.Question, "PostQuestionCommand.Question");
-            CheckArgument.NotEmpty(command.Keywords, "PostQuestionCommand.Keywords");
-
             Tag tag = (string.IsNullOrWhiteSpace(command.TagName)) ? _tagService.GetDefaultTag() : new Tag(command.TagName);
 
             var question = new Question(command.Question, command.Keywords, tag);

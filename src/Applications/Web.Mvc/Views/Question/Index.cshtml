@@ -30,10 +30,10 @@
                 @q.Tags.FirstOrDefault().Name
             </td>
             <td>
-                @Html.ActionLink("Overview", "Overview", new {QuestionID = q.Id})
+                @Html.ActionLink("Overview", "Overview", new {QuestionID = q.Id.Value})
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {QuestionID = q.Id})
+                @Html.ActionLink("Edit", "Edit", new { QuestionID = q.Id.Value })
             </td>
         </tr>
     }

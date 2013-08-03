@@ -12,31 +12,28 @@ namespace Nova.Core.Services.Persistence
 
         static InMemoryQuestionRepository()
         {
-            var tag = new Tag("Science Fiction");
-            SetId(tag, 1);
+            var sciFiTag = new Tag("Science Fiction");
+            SetId(sciFiTag, 1);
 
-            Question question = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", tag);
-            SetId(question, (IntIdentifier)1);
+            Question question1 = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", sciFiTag);
+            SetId(question1, (IntIdentifier)1);
+            question1.Answer("Data");
+            question1.Answer("Data");
+            question1.Answer("Data");
+            question1.Answer("Jean Luc Picard");
 
-            Answer answer;
+            var mobileTag = new Tag("Mobile");
+            SetId(mobileTag, 2);
 
-            answer = new Answer(question, "Data");
-            SetId(answer, 1);
-            question.Answers.Add(answer);
+            Question question2 = new Question("Which mobile operating system do you prefer?", "preferred mobile operating system", mobileTag);
+            SetId(question2, (IntIdentifier)2);
+            question2.Answer("Android");
+            question2.Answer("Android");
+            question2.Answer("IOS");
+            question2.Answer("Windows");
 
-            answer = new Answer(question, "Data");
-            SetId(answer, 2);
-            question.Answers.Add(answer);
-
-            answer = new Answer(question, "Data");
-            SetId(answer, 3);
-            question.Answers.Add(answer);
-
-            answer = new Answer(question, "Jean Luc Picard");
-            SetId(answer, 4);
-            question.Answers.Add(answer);
-
-            Questions.Add(question);
+            Questions.Add(question1);
+            Questions.Add(question2);
         }
 
         public IEnumerable<Question> GetAll()
@@ -57,17 +54,10 @@ namespace Nova.Core.Services.Persistence
         public void PersistChanges()
         {
             int currentMaxQuestionId = Questions.Max(question => question.Id);
-            int currentMaxAnswerId = Questions.SelectMany(question => question.Answers).Max(answer => answer.Id);
 
             foreach (Question question in TransientQuestions)
             {
-                SetId(question, (IntIdentifier)(++currentMaxQuestionId));
-
-                foreach (Answer answer in question.Answers)
-                {
-                    SetId(answer, ++currentMaxAnswerId);
-                }
-
+                SetId(question, (IntIdentifier)(++currentMaxQuestionId));              
                 Questions.Add(question);
             }
 
