@@ -46,6 +46,7 @@
     <Compile Include="IoCContainer\IRegister.cs" />
     <Compile Include="IoCContainer\IResolve.cs" />
     <Compile Include="IoCContainer\Lifetime.cs" />
+    <Compile Include="IoCContainer\TypeContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\CheckArgument.cs" />
   </ItemGroup>

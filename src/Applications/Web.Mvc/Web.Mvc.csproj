@@ -18,6 +18,10 @@
     <UseIISExpress>false</UseIISExpress>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +35,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>..\..\..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -113,6 +117,7 @@
     </Compile>
     <Compile Include="Model\QuestionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -154,7 +159,7 @@
       <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Framework\Framework.csproj">
-      <Project>{2602BF0E-4709-401C-A640-413207189086}</Project>
+      <Project>{2602bf0e-4709-401c-a640-413207189086}</Project>
       <Name>Framework</Name>
     </ProjectReference>
   </ItemGroup>

@@ -7,10 +7,8 @@ namespace Nova.Framework.IoCContainer
             where TInterface : class
             where TClass : TInterface;
 
-        IRegister Register<TInterface, TClass>(string key, Lifetime lifetime)
+        IRegister Register<TInterface, TClass>(string name, Lifetime lifetime)
             where TInterface : class
             where TClass : TInterface;
-
-        IRegister RegisterAllClassesBasedOn<TInterface>(Lifetime lifetime) where TInterface : class;
     }
 }
