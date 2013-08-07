@@ -40,13 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IoCContainer\IContainer.cs" />
-    <Compile Include="IoCContainer\IInstaller.cs" />
-    <Compile Include="IoCContainer\IoCFactory.cs" />
-    <Compile Include="IoCContainer\IRegister.cs" />
-    <Compile Include="IoCContainer\IResolve.cs" />
-    <Compile Include="IoCContainer\Lifetime.cs" />
-    <Compile Include="IoCContainer\TypeContainer.cs" />
+    <Compile Include="InversionOfControl\IContainer.cs" />
+    <Compile Include="InversionOfControl\IInstaller.cs" />
+    <Compile Include="InversionOfControl\IRegister.cs" />
+    <Compile Include="InversionOfControl\IResolve.cs" />
+    <Compile Include="InversionOfControl\Lifetime.cs" />
+    <Compile Include="InversionOfControl\TypeContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\CheckArgument.cs" />
   </ItemGroup>

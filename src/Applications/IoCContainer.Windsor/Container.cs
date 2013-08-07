@@ -1,6 +1,6 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using Nova.Framework.IoCContainer;
+using Nova.Framework.InversionOfControl;
 
 namespace Nova.Libraries.Ioc
 {

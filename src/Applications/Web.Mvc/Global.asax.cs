@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Nova.Framework.IoCContainer;
-using System.IO;
-using System.Reflection;
-using System.Linq;
+using Nova.Framework.InversionOfControl;
 
 namespace Nova.Applications.Web.Mvc
 {

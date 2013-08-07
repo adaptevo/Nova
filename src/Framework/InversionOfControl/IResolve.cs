@@ -1,5 +1,5 @@
 ﻿
-namespace Nova.Framework.IoCContainer
+namespace Nova.Framework.InversionOfControl
 {
     public interface IResolve
     {

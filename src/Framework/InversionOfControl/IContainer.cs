@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nova.Framework.IoCContainer
+namespace Nova.Framework.InversionOfControl
 {
     public interface IContainer : IRegister, IResolve, IDisposable { }
 }

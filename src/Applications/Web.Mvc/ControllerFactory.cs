@@ -5,7 +5,7 @@ using Nova.Applications.Web.Mvc.Controllers;
 using Nova.Core;
 using Nova.Core.Application;
 using Nova.Core.Services.Persistence;
-using Nova.Framework.IoCContainer;
+using Nova.Framework.InversionOfControl;
 
 namespace Nova.Applications.Web.Mvc
 {

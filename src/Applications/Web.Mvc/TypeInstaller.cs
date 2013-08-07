@@ -1,7 +1,6 @@
-﻿
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Nova.Applications.Web.Mvc.Controllers;
-using Nova.Framework.IoCContainer;
+using Nova.Framework.InversionOfControl;
 
 namespace Nova.Applications.Web.Mvc
 {
