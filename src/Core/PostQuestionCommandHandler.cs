@@ -21,7 +21,8 @@ namespace Nova.Core
         {
             Tag tag = (string.IsNullOrWhiteSpace(command.TagName)) ? _tagService.GetDefaultTag() : new Tag(command.TagName);
 
-            var question = new Question(command.Question, command.Keywords, tag);
+            var question = new Question(command.Question, command.Keywords);
+            question.AddTag(tag);
             _questionRepository.Add(question);
             _questionRepository.PersistChanges();
             command.QuestionId = question.Id;

@@ -9,8 +9,8 @@ namespace Nova.Core.Domain
         private int _id;
         private string _value;
         private string _keywords;
-        protected ICollection<Tag> _tags;
-        protected ICollection<Answer> _answers;
+        private ICollection<Tag> _tags;
+        private ICollection<Answer> _answers;
 
         protected Question()
         {
@@ -18,12 +18,11 @@ namespace Nova.Core.Domain
             _answers = new List<Answer>();
         }
 
-        public Question(string value, string keywords, Tag tag)
+        public Question(string value, string keywords)
             : this()
         {
             Value = value;
             Keywords = keywords;
-            AddTag(tag);
         }
 
         public virtual int Id

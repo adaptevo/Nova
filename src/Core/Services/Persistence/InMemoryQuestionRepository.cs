@@ -15,7 +15,8 @@ namespace Nova.Core.Services.Persistence
             var sciFiTag = new Tag("Science Fiction");
             SetId(sciFiTag, 1);
 
-            Question question1 = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", sciFiTag);
+            Question question1 = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character");
+            question1.AddTag(sciFiTag);
             SetId(question1, 1);
             question1.Answer("Data");
             question1.Answer("Data");
@@ -25,7 +26,8 @@ namespace Nova.Core.Services.Persistence
             var mobileTag = new Tag("Mobile");
             SetId(mobileTag, 2);
 
-            Question question2 = new Question("Which mobile operating system do you prefer?", "preferred mobile operating system", mobileTag);
+            Question question2 = new Question("Which mobile operating system do you prefer?", "preferred mobile operating system");
+            question2.AddTag(mobileTag);
             SetId(question2, 2);
             question2.Answer("Android");
             question2.Answer("Android");

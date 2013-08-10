@@ -4,8 +4,9 @@ namespace Nova.Core.Domain
 {
     public class Answer
     {
-        private Question _question; 
+        private int _id;
         private string _value;
+        private Question _question; 
 
         protected Answer() { }
 
@@ -15,13 +16,13 @@ namespace Nova.Core.Domain
             Value = value;
         }
 
-        public virtual Question Question
+        public virtual int Id
         {
-            get { return _question; }
+            get { return _id; }
             protected set
             {
-                Condition.Requires(value, "value (Question)").IsNotNull();
-                _question = value;
+                Condition.Requires(value, "value (Id)").IsGreaterThan(0);
+                _id = value;
             }
         }
 
@@ -32,6 +33,16 @@ namespace Nova.Core.Domain
             {
                 Condition.Requires(value).IsNotNullOrWhiteSpace();
                 _value = value;
+            }
+        }
+
+        public virtual Question Question
+        {
+            get { return _question; }
+            protected set
+            {
+                Condition.Requires(value, "value (Question)").IsNotNull();
+                _question = value;
             }
         }
     }
