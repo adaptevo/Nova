@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCContainer.Windsor", "App
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence.EntityFramework", "Services\Persistence.EntityFramework\Persistence.EntityFramework.csproj", "{FDE14EC4-748C-4474-8D1B-8B6252F9E7BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence.NHibernate", "Services\Persistence.NHibernate\Persistence.NHibernate.csproj", "{FA9A4AE0-8F22-4DD2-8856-22EAABB76F74}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Nova.vsmdi
@@ -66,6 +68,10 @@ Global
 		{FDE14EC4-748C-4474-8D1B-8B6252F9E7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDE14EC4-748C-4474-8D1B-8B6252F9E7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDE14EC4-748C-4474-8D1B-8B6252F9E7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA9A4AE0-8F22-4DD2-8856-22EAABB76F74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9A4AE0-8F22-4DD2-8856-22EAABB76F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9A4AE0-8F22-4DD2-8856-22EAABB76F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9A4AE0-8F22-4DD2-8856-22EAABB76F74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +82,6 @@ Global
 		{8389D8AF-B236-41BF-8516-108479A7E116} = {C9736C11-EF5A-4ADF-B2D2-F156C7740C4B}
 		{8D28E7FB-E0F5-47E0-9814-2D1CE5454828} = {C9736C11-EF5A-4ADF-B2D2-F156C7740C4B}
 		{FDE14EC4-748C-4474-8D1B-8B6252F9E7BB} = {5F682BE6-1C47-43EA-99CE-CA4161C823C6}
+		{FA9A4AE0-8F22-4DD2-8856-22EAABB76F74} = {5F682BE6-1C47-43EA-99CE-CA4161C823C6}
 	EndGlobalSection
 EndGlobal
