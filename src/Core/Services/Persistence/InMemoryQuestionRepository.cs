@@ -16,7 +16,7 @@ namespace Nova.Core.Services.Persistence
             SetId(sciFiTag, 1);
 
             Question question1 = new Question("Who is your favorite character from any of the Star Trek series", "favorite star trek series character", sciFiTag);
-            SetId(question1, (IntIdentifier)1);
+            SetId(question1, 1);
             question1.Answer("Data");
             question1.Answer("Data");
             question1.Answer("Data");
@@ -26,7 +26,7 @@ namespace Nova.Core.Services.Persistence
             SetId(mobileTag, 2);
 
             Question question2 = new Question("Which mobile operating system do you prefer?", "preferred mobile operating system", mobileTag);
-            SetId(question2, (IntIdentifier)2);
+            SetId(question2, 2);
             question2.Answer("Android");
             question2.Answer("Android");
             question2.Answer("IOS");
@@ -57,16 +57,11 @@ namespace Nova.Core.Services.Persistence
 
             foreach (Question question in TransientQuestions)
             {
-                SetId(question, (IntIdentifier)(++currentMaxQuestionId));              
+                SetId(question, ++currentMaxQuestionId);              
                 Questions.Add(question);
             }
 
             TransientQuestions.Clear();
-        }
-
-        private static void SetId<T>(T entity, IntIdentifier id)
-        {
-            typeof(T).GetProperty("Id").SetValue(entity, id, null); 
         }
 
         private static void SetId<T>(T entity, int id)

@@ -5,14 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}</ProjectGuid>
+    <ProjectGuid>{FDE14EC4-748C-4474-8D1B-8B6252F9E7BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nova.Core</RootNamespace>
-    <AssemblyName>Nova.Core</AssemblyName>
+    <RootNamespace>Nova.Services.Persistence.EntityFramework</RootNamespace>
+    <AssemblyName>Nova.Services.Persistence.EntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,11 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CuttingEdge.Conditions">
-      <HintPath>..\packages\CuttingEdge.Conditions.1.2.0.0\lib\NET35\CuttingEdge.Conditions.dll</HintPath>
+    <Reference Include="CuttingEdge.Conditions, Version=1.2.0.11174, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuttingEdge.Conditions.1.2.0.0\lib\NET35\CuttingEdge.Conditions.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,43 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnswerQuestionCommand.cs" />
-    <Compile Include="AnswerQuestionCommandHandler.cs" />
-    <Compile Include="Application\ITagService.cs" />
-    <Compile Include="Application\TagService.cs" />
-    <Compile Include="Domain\Tag.cs" />
-    <Compile Include="Domain\Question.cs" />
-    <Compile Include="Domain\User.cs" />
-    <Compile Include="Domain\Answer.cs" />
-    <Compile Include="GetAllQuestionsQuery.cs" />
-    <Compile Include="GetAllQuestionsQueryHandler.cs" />
-    <Compile Include="GetQuestionByIdQuery.cs" />
-    <Compile Include="GetQuestionByIdQueryHandler.cs" />
-    <Compile Include="ICommandHandler.cs" />
-    <Compile Include="IQuery.cs" />
-    <Compile Include="IQueryHandler.cs" />
-    <Compile Include="PostQuestionCommand.cs" />
-    <Compile Include="PostQuestionCommandHandler.cs" />
+    <Compile Include="NovaContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Configuration\ISettingService.cs" />
-    <Compile Include="Services\Context\IUserContext.cs" />
-    <Compile Include="Services\Context\MockUserContext.cs" />
-    <Compile Include="Services\Persistence\InMemoryQuestionRepository.cs" />
-    <Compile Include="Services\Persistence\InMemoryTagRepository.cs" />
-    <Compile Include="Services\Persistence\IQuestionRepository.cs" />
-    <Compile Include="Services\Persistence\ITagRepository.cs" />
+    <Compile Include="QuestionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\Authentication\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Framework\Framework.csproj">
-      <Project>{2602BF0E-4709-401C-A640-413207189086}</Project>
-      <Name>Framework</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.csproj">
+      <Project>{D3960DEC-B8FD-41ED-9FC2-17F045C799EA}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

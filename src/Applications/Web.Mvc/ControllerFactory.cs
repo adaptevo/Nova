@@ -6,6 +6,7 @@ using Nova.Core;
 using Nova.Core.Application;
 using Nova.Core.Services.Persistence;
 using Nova.Framework.InversionOfControl;
+using Nova.Services.Persistence.EntityFramework;
 
 namespace Nova.Applications.Web.Mvc
 {
@@ -31,6 +32,7 @@ namespace Nova.Applications.Web.Mvc
 
             if (controllerName == "Question")
             {
+                //var questionRepository = new QuestionRepository(new NovaContext());
                 var questionRepository = new InMemoryQuestionRepository();
                 return new QuestionController(new PostQuestionCommandHandler(questionRepository, new TagService()),
                     new GetQuestionByIdQueryHandler(questionRepository),

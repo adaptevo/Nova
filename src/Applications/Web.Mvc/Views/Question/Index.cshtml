@@ -27,13 +27,13 @@
                 @q.Keywords
             </td>
              <td>
-                @q.Tags.FirstOrDefault().Name
+                @q.Tags.FirstOrDefault().Value
             </td>
             <td>
-                @Html.ActionLink("Overview", "Overview", new {QuestionID = q.Id.Value})
+                @Html.ActionLink("Overview", "Overview", new {QuestionID = q.Id})
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { QuestionID = q.Id.Value })
+                @Html.ActionLink("Edit", "Edit", new { QuestionID = q.Id })
             </td>
         </tr>
     }

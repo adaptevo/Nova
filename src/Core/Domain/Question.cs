@@ -1,52 +1,74 @@
 ﻿using System.Collections.Generic;
 using CuttingEdge.Conditions;
+using System.Linq;
 
 namespace Nova.Core.Domain
 {
     public class Question
     {
-        private IntIdentifier _id;
-        private readonly string _value;
-        private readonly string _keyword;
-        private readonly List<QuestionText> _suggestedQuestionText;
-        private readonly List<Tag> _tags;
-        private readonly List<Answer> _answers;
+        private int _id;
+        private string _value;
+        private string _keywords;
+        protected ICollection<Tag> _tags;
+        protected ICollection<Answer> _answers;
 
-        public Question(string value, string keywords, Tag tag)
+        protected Question()
         {
-            Condition.Requires(value).IsNotEmpty();
-            Condition.Requires(keywords, "keywords").IsNotEmpty();
-            Condition.Requires(tag, "tag").IsNotNull();
-
-            var questionText = new QuestionText(value, keywords);
-            _suggestedQuestionText = new List<QuestionText>() { questionText };
-
-            _id = IntIdentifier.Transient;
-            _value = questionText.Value;
-            _keyword = questionText.Keyword;
-            _tags = new List<Tag>() { tag };
+            _tags = new List<Tag>();
             _answers = new List<Answer>();
         }
 
-        public IntIdentifier Id
+        public Question(string value, string keywords, Tag tag)
+            : this()
+        {
+            Value = value;
+            Keywords = keywords;
+            AddTag(tag);
+        }
+
+        public virtual int Id
         {
             get { return _id; }
-            private set 
+            protected set 
             {
-                Condition.Requires(value).IsNotNull();
+                Condition.Requires(value, "value (Id)").IsGreaterThan(0);
                 _id = value; 
             }
         }
 
-        public string Value { get { return _value; } }
-        public string Keywords { get { return _keyword; } }
-        public IEnumerable<QuestionText> SuggestedQuestionText { get { return _suggestedQuestionText.ToArray(); } }
-        public IEnumerable<Tag> Tags { get { return _tags.ToArray(); } }
-        public IEnumerable<Answer> Answers { get { return _answers.ToArray(); } }
+        public virtual string Value 
+        { 
+            get { return _value; }
+            protected set 
+            {
+                Condition.Requires(value).IsNotNullOrWhiteSpace();
+                _value = value; 
+            }
+        }
+
+        public virtual string Keywords 
+        {
+            get { return _keywords; }
+            protected set
+            {
+                Condition.Requires(value, "value (Keywords)").IsNotNullOrWhiteSpace();
+                _keywords = value;
+            } 
+        }
+
+        public IEnumerable<Tag> Tags { get { return _tags; } }
+        public IEnumerable<Answer> Answers { get { return _answers; } }
 
         public void Answer(string value)
         {
-            _answers.Add(new Answer(value));
+            Condition.Requires(value).IsNotEmpty();
+            _answers.Add(new Answer(this, value));
+        }
+
+        public void AddTag(Tag tag)
+        {
+            Condition.Requires(tag, "tag").IsNotNull();
+            _tags.Add(tag);
         }
     }
 }

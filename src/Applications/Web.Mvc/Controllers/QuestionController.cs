@@ -20,10 +20,9 @@ namespace Nova.Applications.Web.Mvc.Controllers
             IQueryHandler<GetQuestionByIdQuery, Question> getQuestionById,
             IQueryHandler<GetAllQuestionsQuery, IEnumerable<Question>> getAllQuestions)
         {
-            var questionRepository = new InMemoryQuestionRepository();
-            _postQuestion = new PostQuestionCommandHandler(questionRepository, new TagService());
-            _getQuestionById = new GetQuestionByIdQueryHandler(questionRepository);
-            _getAllQuestions = new GetAllQuestionsQueryHandler(questionRepository);
+            _postQuestion = postQuestion;
+            _getQuestionById = getQuestionById;
+            _getAllQuestions = getAllQuestions;
         }
 
         public ActionResult Index()

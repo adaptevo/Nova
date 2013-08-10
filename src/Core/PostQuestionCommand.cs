@@ -8,6 +8,6 @@ namespace Nova.Core
         public string Keywords { get; set; }
         public string TagName { get; set; }
 
-        public IntIdentifier QuestionId { get; internal set; }
+        public int QuestionId { get; internal set; }
     }
 }

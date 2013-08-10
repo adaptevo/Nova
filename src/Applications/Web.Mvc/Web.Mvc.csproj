@@ -41,9 +41,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -161,6 +165,10 @@
     <ProjectReference Include="..\..\Framework\Framework.csproj">
       <Project>{2602bf0e-4709-401c-a640-413207189086}</Project>
       <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Persistence.EntityFramework\Persistence.EntityFramework.csproj">
+      <Project>{FDE14EC4-748C-4474-8D1B-8B6252F9E7BB}</Project>
+      <Name>Persistence.EntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using CuttingEdge.Conditions;
 using Nova.Framework.Utilities;
 
 namespace Nova.Core.Domain
@@ -9,26 +6,33 @@ namespace Nova.Core.Domain
     public class Tag
     {
         private int _id;
-        private readonly string _name;
-        private Tag _parent;
+        private string _value;
 
-        public Tag(string name)
+        protected Tag() { }
+
+        public Tag(string value)
         {
-            _name = CheckArgument.NotEmpty(name, "name");
+            Value = value;
         }
 
-        public int Id 
+        public virtual int Id
         {
             get { return _id; }
-            private set { _id = CheckArgument.NotDefault(value, "value (Id)"); }
+            protected set
+            {
+                Condition.Requires(value, "value (Id)").IsGreaterThan(0);
+                _id = value;
+            }
         }
 
-        public string Name { get { return _name; } }
-
-        public Tag Parent 
+        public virtual string Value
         {
-            get { return _parent; }
-            set { _parent = CheckArgument.NotNull(value, "value (Parent)"); }
+            get { return _value; }
+            protected set
+            {
+                Condition.Requires(value).IsNotNullOrWhiteSpace();
+                _value = value;
+            }
         }
     }
 }

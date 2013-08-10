@@ -1,19 +1,38 @@
-﻿using Nova.Framework.Utilities;
-using System;
-using CuttingEdge.Conditions;
+﻿using CuttingEdge.Conditions;
 
 namespace Nova.Core.Domain
 {
     public class Answer
     {
-        private readonly string _value;
+        private Question _question; 
+        private string _value;
 
-        public Answer(string value)
+        protected Answer() { }
+
+        public Answer(Question question, string value)
         {
-            Condition.Requires(value).IsNotEmpty();
-            _value = value;
+            Question = question;
+            Value = value;
         }
 
-        public string Value { get { return _value; } }
+        public virtual Question Question
+        {
+            get { return _question; }
+            protected set
+            {
+                Condition.Requires(value, "value (Question)").IsNotNull();
+                _question = value;
+            }
+        }
+
+        public virtual string Value 
+        {
+            get { return _value; }
+            protected set
+            {
+                Condition.Requires(value).IsNotNullOrWhiteSpace();
+                _value = value;
+            }
+        }
     }
 }
