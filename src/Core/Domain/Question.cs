@@ -55,16 +55,16 @@ namespace Nova.Core.Domain
             } 
         }
 
-        public IEnumerable<Tag> Tags { get { return _tags; } }
-        public IEnumerable<Answer> Answers { get { return _answers; } }
+        public virtual IEnumerable<Tag> Tags { get { return _tags; } }
+        public virtual IEnumerable<Answer> Answers { get { return _answers; } }
 
-        public void Answer(string value)
+        public virtual void Answer(string value)
         {
             Condition.Requires(value).IsNotEmpty();
             _answers.Add(new Answer(this, value));
         }
 
-        public void AddTag(Tag tag)
+        public virtual void AddTag(Tag tag)
         {
             Condition.Requires(tag, "tag").IsNotNull();
             _tags.Add(tag);

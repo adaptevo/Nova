@@ -10,8 +10,10 @@ namespace Nova.Services.Persistence.NHibernate.Mappings
             Id(question => question.Id);
             Map(question => question.Value);
             Map(question => question.Keywords);
-            HasMany(question => question.Tags);
-            HasMany(question => question.Answers);
+            HasMany(question => question.Tags)
+                .Cascade.All();
+            HasMany(question => question.Answers)
+                .Cascade.All();
         }
     }
 }
