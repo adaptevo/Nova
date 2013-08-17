@@ -33,7 +33,8 @@ namespace Nova.Applications.Web.Mvc
             if (controllerName == "Question")
             {
                 //var questionRepository = new QuestionRepository(new NovaContext());
-                var questionRepository = new InMemoryQuestionRepository();
+                //var questionRepository = new InMemoryQuestionRepository();
+                var questionRepository = _container.Resolve<IQuestionRepository>();
                 return new QuestionController(new PostQuestionCommandHandler(questionRepository, new TagService()),
                     new GetQuestionByIdQueryHandler(questionRepository),
                     new GetAllQuestionsQueryHandler(questionRepository));

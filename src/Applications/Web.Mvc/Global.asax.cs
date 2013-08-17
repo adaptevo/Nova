@@ -22,7 +22,7 @@ namespace Nova.Applications.Web.Mvc
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             RegisterAllTypes();
-            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(null)); // TODO: Pass in a valid container when created
+            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(TypeContainer.Current)); // TODO: Pass in a valid container when created
         }
 
         // register all types in the Nova solution
@@ -31,7 +31,8 @@ namespace Nova.Applications.Web.Mvc
             IList<string> assemblies = new List<string> 
             { 
                 "Nova.Applications.Web.Mvc.dll", 
-                "Nova.Core.dll"
+                "Nova.Core.dll",
+                "Nova.Services.Persistence.NHibernate.dll"
             };
 
             string assemblyDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:\\", string.Empty);
