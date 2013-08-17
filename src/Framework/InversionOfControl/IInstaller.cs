@@ -3,6 +3,6 @@ namespace Nova.Framework.InversionOfControl
 {
     public interface IInstaller
     {
-        void Install(IContainer container);
+        void Install(IRegister container);
     }
 }

@@ -15,6 +15,8 @@ namespace Nova.Framework.InversionOfControl
             _container = CreateContainer();
         }
 
+        public static IContainer Current { get { return _container; } }
+
         public static void RegisterTypesForApplication(IEnumerable<string> assemblyPaths)
         {
             IList<string> assembliesToRegister = new List<string>();

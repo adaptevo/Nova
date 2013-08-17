@@ -6,7 +6,7 @@ namespace Nova.Applications.Web.Mvc
 {
     public class TypeInstaller : IInstaller
     {
-        public void Install(IContainer container)
+        public void Install(IRegister container)
         {
             container.Register<IController, QuestionController>("Question", Lifetime.Transient);
         }
