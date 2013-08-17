@@ -2,5 +2,5 @@
 
 namespace Nova.Framework.InversionOfControl
 {
-    public interface IContainer : IRegister, IResolve, IDisposable { }
+    public interface IContainer : IRegister, IResolve { }
 }
