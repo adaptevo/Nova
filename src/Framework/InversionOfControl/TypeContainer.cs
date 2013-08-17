@@ -63,14 +63,28 @@ namespace Nova.Framework.InversionOfControl
 
         private static IContainer CreateContainer()
         {
-            // todo: assembly is hard-coded for now. 
-            string dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:\\", string.Empty);
-            var assemblyPath = Path.Combine(dir, "Nova.Application.IoCContainer.Windsor.dll");
+            IocConfiguration iocConfiguration = new IocConfiguration();
+            string executingDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:\\", string.Empty);
+            var assemblyPath = Path.Combine(executingDir, GetContainerAssembly(iocConfiguration.GetContainerName()));
 
             Assembly assembly = Assembly.LoadFrom(assemblyPath);
             var containerType = assembly.GetTypes().Single(t => typeof(IContainer).IsAssignableFrom(t));
 
             return (IContainer)Activator.CreateInstance(containerType);
+        }
+
+        private static string GetContainerAssembly(string containerName)
+        {
+            string assemblyName = "Nova.Application.IoCContainer.Windsor.dll";
+            
+            switch (containerName)
+            {
+                case "windsor":
+                    assemblyName = "Nova.Application.IoCContainer.Windsor.dll";
+                    break;            
+            }
+
+            return assemblyName;
         }
     }
 }
