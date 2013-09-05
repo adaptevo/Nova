@@ -13,6 +13,7 @@
             <th>Default Tag</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -34,6 +35,9 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { QuestionID = q.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Respond", "TakeSurvey", new {QuestionID = q.Id})
             </td>
         </tr>
     }

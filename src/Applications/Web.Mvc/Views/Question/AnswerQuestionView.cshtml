@@ -1,0 +1,48 @@
+﻿@model Nova.Applications.Web.Mvc.Model.QuestionModel
+@{
+    ViewBag.Title = "AnswerQuestionView";
+}
+
+@{
+    List<string> responses = new List<string>();
+    foreach(var answer in Model.CurrentQuestion.Answers)
+    {
+        responses.Add(answer.Value);
+    }
+    
+    <script type="text/javascript">
+        var answers = @(Html.Raw(Json.Encode(responses)));
+    </script>
+}
+
+<h2>Answer Question</h2>
+<div>
+    <div class='QuestionText'>
+        @Model.CurrentQuestion.Value;
+    </div>
+    @using (Html.BeginForm("Answer", "Question"))
+    {
+        @Html.TextBox("answer", null, new { onkeyup = "loadSuggestions();" });
+        <select id="suggestionDDL"></select>
+        @Html.Hidden("questionId", Model.CurrentQuestion.Id);
+        <input type="submit" value="Answer Question" />
+    }
+</div>
+<script type="text/javascript">
+    function loadSuggestions() {
+        var ddl = document.getElementById("suggestionDDL");
+        var currentResponse = document.getElementById("answer");
+        ddl.options.length = 0;
+
+        for (var i = 0; i < answers.length; i++) {
+            if (answers[i].indexOf(currentResponse.value) != -1) {
+                var suggestion = document.createElement("option");
+                suggestion.text = answers[i];
+                suggestion.value = answers[i];
+                ddl.options.add(suggestion);
+            }
+        }
+       
+
+    }
+</script>

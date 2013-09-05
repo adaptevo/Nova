@@ -37,7 +37,8 @@ namespace Nova.Applications.Web.Mvc
                 var questionRepository = _container.Resolve<IQuestionRepository>();
                 return new QuestionController(new PostQuestionCommandHandler(questionRepository, new TagService()),
                     new GetQuestionByIdQueryHandler(questionRepository),
-                    new GetAllQuestionsQueryHandler(questionRepository));
+                    new GetAllQuestionsQueryHandler(questionRepository),
+                    new AnswerQuestionCommandHandler(questionRepository));
             }
 
             return _defaultControllerFactory.CreateController(requestContext, controllerName);

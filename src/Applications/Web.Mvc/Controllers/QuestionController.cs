@@ -15,14 +15,17 @@ namespace Nova.Applications.Web.Mvc.Controllers
         private readonly ICommandHandler<PostQuestionCommand> _postQuestion;
         private readonly IQueryHandler<GetQuestionByIdQuery, Question> _getQuestionById;
         private readonly IQueryHandler<GetAllQuestionsQuery, IEnumerable<Question>> _getAllQuestions;
+        private readonly ICommandHandler<AnswerQuestionCommand> _answerQuestion;
 
         public QuestionController(ICommandHandler<PostQuestionCommand> postQuestion, 
             IQueryHandler<GetQuestionByIdQuery, Question> getQuestionById,
-            IQueryHandler<GetAllQuestionsQuery, IEnumerable<Question>> getAllQuestions)
+            IQueryHandler<GetAllQuestionsQuery, IEnumerable<Question>> getAllQuestions,
+            ICommandHandler<AnswerQuestionCommand> answerQuestion)
         {
             _postQuestion = postQuestion;
             _getQuestionById = getQuestionById;
             _getAllQuestions = getAllQuestions;
+            _answerQuestion = answerQuestion;
         }
 
         public ActionResult Index()
@@ -78,6 +81,36 @@ namespace Nova.Applications.Web.Mvc.Controllers
             {
                 return View("OverviewView");
             }
+        }
+
+        public ActionResult TakeSurvey(int questionId)
+        {
+            Question question = _getQuestionById.Handle(new GetQuestionByIdQuery() { QuestionId = questionId });
+
+            if (question != default(Question))
+            {
+                QuestionModel model = new QuestionModel();
+                model.CurrentQuestion = question;
+
+                return View("AnswerQuestionView", model);
+            }
+            else
+            {
+                return Index();
+            }
+        }
+
+        public ActionResult Answer(int questionId, string answer)
+        {
+            Question question = _getQuestionById.Handle(new GetQuestionByIdQuery() { QuestionId = questionId });
+
+            if (question != default(Question) && !string.IsNullOrWhiteSpace(answer))
+            {
+                _answerQuestion.Handle(new AnswerQuestionCommand() { QuestionId = questionId, Answer = answer });
+            }
+
+            return Index();
+
         }
     }
 }
