@@ -1,0 +1,33 @@
+﻿@model Nova.Applications.Web.Mvc.Model.UserModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Create", "User"))
+{
+<table>
+    <tr>
+        <td>Username</td>
+        <td>@Html.TextBoxFor(x => x.Username)</td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td>@Html.PasswordFor(x => x.Password)</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>@Html.TextBoxFor(x => x.Name)</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>@Html.TextBoxFor(x => x.Email)</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Register" />
+        </td>
+    </tr>
+</table>
+}

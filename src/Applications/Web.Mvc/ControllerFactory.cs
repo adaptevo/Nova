@@ -40,6 +40,12 @@ namespace Nova.Applications.Web.Mvc
                     new GetAllQuestionsQueryHandler(questionRepository),
                     new AnswerQuestionCommandHandler(questionRepository));
             }
+            else if (controllerName == "User")
+            {
+                var userRepository = _container.Resolve<IUserRepository>();
+                return new UserController(new AuthenticateUserQueryHandler(userRepository),
+                    new CreateUserQueryHandler(userRepository));
+            }
 
             return _defaultControllerFactory.CreateController(requestContext, controllerName);
         }

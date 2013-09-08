@@ -9,6 +9,7 @@ namespace Nova.Applications.Web.Mvc
         public void Install(IRegister container)
         {
             container.Register<IController, QuestionController>("Question", Lifetime.Transient);
+            container.Register<IController, UserController>("User", Lifetime.Transient);
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Nova.Services.Persistence.EntityFramework
     {
         public DbSet<Question> Questions { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

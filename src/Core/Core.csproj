@@ -45,6 +45,10 @@
     <Compile Include="AnswerQuestionCommandHandler.cs" />
     <Compile Include="Application\ITagService.cs" />
     <Compile Include="Application\TagService.cs" />
+    <Compile Include="AuthenticateUserQuery.cs" />
+    <Compile Include="AuthenticateUserQueryHandler.cs" />
+    <Compile Include="CreateUserQuery.cs" />
+    <Compile Include="CreateUserQueryHandler.cs" />
     <Compile Include="Domain\Tag.cs" />
     <Compile Include="Domain\Question.cs" />
     <Compile Include="Domain\User.cs" />
@@ -66,6 +70,7 @@
     <Compile Include="Services\Persistence\InMemoryTagRepository.cs" />
     <Compile Include="Services\Persistence\IQuestionRepository.cs" />
     <Compile Include="Services\Persistence\ITagRepository.cs" />
+    <Compile Include="Services\Persistence\IUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\Authentication\" />

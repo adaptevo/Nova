@@ -7,9 +7,11 @@ using Nova.Applications.Web.Mvc.Model;
 using Nova.Core.Services.Persistence;
 using Nova.Core.Services.Context;
 using Nova.Core;
+using Nova.Applications.Web.Mvc.Security;
 
 namespace Nova.Applications.Web.Mvc.Controllers
 {
+    [NovaAuthorization]
     public class QuestionController : Controller
     {
         private readonly ICommandHandler<PostQuestionCommand> _postQuestion;

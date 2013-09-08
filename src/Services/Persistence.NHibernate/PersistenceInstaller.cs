@@ -19,6 +19,7 @@ namespace Nova.Services.Persistence.NHibernate
             container.Register<ISession, ISessionFactory>((factory) => factory.OpenSession(), 
                 Lifetime.PerWebRequest);
             container.Register<IQuestionRepository, QuestionRepository>(Lifetime.Transient);
+            container.Register<IUserRepository, UserRepository>(Lifetime.Transient);
         }
 
         private Configuration BuildDatabaseConfiguration()
@@ -26,6 +27,7 @@ namespace Nova.Services.Persistence.NHibernate
             return Fluently.Configure()
                 .Database(SetupDatabase)
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<QuestionMap>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMap>())
                 .ExposeConfiguration(ConfigurePersistence)
                 .BuildConfiguration();
         }
