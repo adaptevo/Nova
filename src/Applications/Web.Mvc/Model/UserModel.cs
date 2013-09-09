@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Nova.Core.Domain;
 
 namespace Nova.Applications.Web.Mvc.Model
 {
@@ -12,5 +13,7 @@ namespace Nova.Applications.Web.Mvc.Model
         public string Password { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public IEnumerable<User> Users { get; set; }
+        
     }
 }

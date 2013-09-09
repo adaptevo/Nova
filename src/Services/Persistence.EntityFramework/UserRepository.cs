@@ -48,7 +48,7 @@ namespace Nova.Services.Persistence.EntityFramework
 
         public User CreateUser(string username, string password, string name, string email)
         {
-            _dbContext.Users.Add(new User(new Guid().ToString(), name,username,password,email));
+            _dbContext.Users.Add(new User(Guid.NewGuid().ToString(), name,username,password,email));
             _dbContext.SaveChanges();
             return _dbContext.Users.Last();
 
@@ -58,6 +58,12 @@ namespace Nova.Services.Persistence.EntityFramework
         public User GetUser(string username, string password)
         {
             return _dbContext.Users.Where(x => x.Username.ToLower() == username.ToLower() && x.Password == password).SingleOrDefault();
+        }
+
+
+        public IEnumerable<User> GetUsers()
+        {
+            return _dbContext.Users;
         }
     }
 }

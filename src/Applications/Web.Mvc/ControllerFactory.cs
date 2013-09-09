@@ -44,7 +44,8 @@ namespace Nova.Applications.Web.Mvc
             {
                 var userRepository = _container.Resolve<IUserRepository>();
                 return new UserController(new AuthenticateUserQueryHandler(userRepository),
-                    new CreateUserQueryHandler(userRepository));
+                    new CreateUserQueryHandler(userRepository),
+                    new GetUsersQueryHandler(userRepository));
             }
 
             return _defaultControllerFactory.CreateController(requestContext, controllerName);

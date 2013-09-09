@@ -9,6 +9,7 @@ using Nova.Core.Services.Context;
 using Nova.Core;
 using Nova.Core.Domain;
 using Nova.Applications.Web.Mvc.Model;
+using Nova.Applications.Web.Mvc.Security;
 
 namespace Nova.Applications.Web.Mvc.Controllers
 {
@@ -16,12 +17,15 @@ namespace Nova.Applications.Web.Mvc.Controllers
     {
         private readonly IQueryHandler<AuthenticateUserQuery, User> _authenticateUser;
         private readonly IQueryHandler<CreateUserQuery, User> _registerUser;
-
+        private readonly IQueryHandler<GetUsersQuery, IEnumerable<User>> _getUsers;
+        
         public UserController(IQueryHandler<AuthenticateUserQuery, User> authenticateuser,
-            IQueryHandler<CreateUserQuery, User> registerUser)
+            IQueryHandler<CreateUserQuery, User> registerUser,
+            IQueryHandler<GetUsersQuery, IEnumerable<User>> getUsers)
         {
             _authenticateUser = authenticateuser;
             _registerUser = registerUser;
+            _getUsers = getUsers;
         }
         
         public ActionResult Index()
@@ -62,6 +66,14 @@ namespace Nova.Applications.Web.Mvc.Controllers
             }
 
             return View();
+        }
+
+        [NovaAuthorization]
+        public ActionResult Administration()
+        {
+            var model = new UserModel();
+            model.Users = _getUsers.Handle(new GetUsersQuery());
+            return View("Administration", model);
         }
 
     }

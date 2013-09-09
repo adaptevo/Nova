@@ -57,6 +57,8 @@
     <Compile Include="GetAllQuestionsQueryHandler.cs" />
     <Compile Include="GetQuestionByIdQuery.cs" />
     <Compile Include="GetQuestionByIdQueryHandler.cs" />
+    <Compile Include="GetUsersQuery.cs" />
+    <Compile Include="GetUsersQueryHandler.cs" />
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="IQueryHandler.cs" />

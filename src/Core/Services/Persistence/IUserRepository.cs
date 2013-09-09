@@ -13,5 +13,6 @@ namespace Nova.Core.Services.Persistence
         User UpdateUser(User User);
         void DeleteUser(int UserId);
         User CreateUser(string username, string password, string name, string email);
+        IEnumerable<User> GetUsers();
     }
 }

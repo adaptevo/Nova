@@ -23,7 +23,10 @@ namespace Nova.Services.Persistence.NHibernate
 
         public User UpdateUser(User User)
         {
-            throw new NotImplementedException();
+            var user =_session.Query<User>().ToArray().Where(x => x.Id == User.Id).SingleOrDefault();
+            user = User;
+            PersistChanges();
+            return user;
         }
 
         public User GetUser(int UserId)
@@ -38,7 +41,7 @@ namespace Nova.Services.Persistence.NHibernate
 
         public User CreateUser(string username, string password, string name, string email)
         {
-            User user = new User(new Guid().ToString(), name, username, password, email);
+            User user = new User(Guid.NewGuid().ToString(), name, username, password, email);
             _session.Save(user);
             PersistChanges();
             return GetUser(username, password);
@@ -49,10 +52,15 @@ namespace Nova.Services.Persistence.NHibernate
             _session.Flush();
         }
 
-
         public User GetUser(string username, string password)
         {
             return _session.Query<User>().ToArray().Where(x => x.Username == username && x.Password == password).SingleOrDefault();
+        }
+
+
+        public IEnumerable<User> GetUsers()
+        {
+            return _session.Query<User>().ToArray();
         }
     }
 }
