@@ -8,6 +8,14 @@
     </head>
     <body>
         <div class="mainContent">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="header">
+                    <div class="logoutBtn">
+                        <a href="~/User/Logout">logout</a>
+                    </div>
+                </div>         
+            }
             @RenderBody()
         </div>
     </body>

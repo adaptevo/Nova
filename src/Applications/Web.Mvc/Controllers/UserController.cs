@@ -76,5 +76,11 @@ namespace Nova.Applications.Web.Mvc.Controllers
             return View("Administration", model);
         }
 
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return View("Login");
+        }
+
     }
 }

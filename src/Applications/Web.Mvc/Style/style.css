@@ -58,3 +58,14 @@ h2
     font-size: 14px;
     padding: 10px 15px 10px 15px;
 }
+
+.logoutBtn
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.header
+{
+    background: #DDDDDD;
+}
