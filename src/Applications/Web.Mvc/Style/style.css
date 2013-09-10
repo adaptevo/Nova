@@ -1,0 +1,53 @@
+﻿body, form, table, div, td, th, a 
+{
+    font-family: Arial;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    border: 0;
+}
+
+a
+{
+    color: Blue;
+}
+
+h2
+{
+    padding: 5px;
+}
+
+.mainContent
+{
+    margin: 5px;
+    min-width: 800px;
+    width: 100%;
+}
+
+.defaultTable
+{
+    margin: 20px;
+    border: 1px solid #CCCCCC;
+}
+
+.defaultTable tr
+{
+    padding: 10px 0px 10px 0px;
+    border: 1px solid #CCCCCC;
+}
+
+.defaultTable th
+{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 3px;
+    background: #EEEEEE;
+}
+
+.defaultTable td
+{
+    font-family: Arial;
+    font-size: 14px;
+    padding: 10px 15px 10px 15px;
+}
