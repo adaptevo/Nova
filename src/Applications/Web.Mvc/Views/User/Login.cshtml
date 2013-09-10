@@ -2,11 +2,13 @@
     ViewBag.Title = "Login";
 }
 
+<link type="text/css" rel="Stylesheet" href="../../Style/loginStyle.css" />
+
 <h2>Login</h2>
 
 @using (@Html.BeginForm("Authenticate", "User"))
 {
-<table>
+<table class="defaultTable loginTable">
     <tr>
         <td>Username: </td>
         <td>@Html.TextBox("username")</td>
@@ -16,7 +18,7 @@
         <td>@Html.Password("password")</td>
     </tr>
     <tr>
-        <td colspan="2"><input type="submit" value="Login" /></td>
+        <td colspan="2" class="loginBtnCell"><input type="submit" value="Login" /></td>
     </tr>
 </table>
 }

@@ -1,0 +1,14 @@
+﻿.loginTable tr
+{
+    border: 0;
+}
+
+.loginBtnCell
+{
+    text-align:center;
+}
+
+.loginBtnCell input[type=submit]
+{
+    padding: 10px 15px 10px 15px;
+}
